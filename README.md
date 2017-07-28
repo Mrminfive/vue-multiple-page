@@ -12,7 +12,7 @@
 ## 使用
 
 ``` shell
-git clone https://github.com/Mrminfive/nodejs.doc.cn.git
+git clone https://github.com/Mrminfive/vue-multiple-page.git
 cd vue-multiple-page
 npm install
 npm run dev
@@ -54,6 +54,7 @@ npm run build:vendors
 
 ## 项目结构
 
+```
 .
 ├── README.md
 ├── build
@@ -96,19 +97,23 @@ npm run build:vendors
         │       ├── manifest_vendors.json
         │       └── vendors.js
         └── test.txt
+```
 
 > *注意*: 开启多页功能的情况下，脚本默认获取 `src/pages`文件夹下除 `common` 文件夹外的所有满足 `!(_)*/!(_)*.html` 条件的html文件作为html页面，并将满足条件的文件夹下的 `js` 文件夹下的 `index.js` 作为 webpack 打包入口。
 
 ### 每个页面项目的基本格式
 
+```
 .my-page (页面名称)
 ├── index.html (页面渲染的html模版)
 ├── js
 │   └── index.js (页面脚本入口)
 └── style (页面的样式文件)
+```
 
 ### 编译后的项目结构
 
+```
 .
 ├── css
 │   ├── index.3f05035e.css
@@ -129,6 +134,7 @@ npm run build:vendors
 │   └── test.txt
 ├── index.html
 └── page2.html
+```
 
 
 ## 配置
@@ -212,4 +218,4 @@ npm run build:vendors
 
 ## 备注
 
-*如果遇到脚本语法兼容问题，请升级 `node` 版本。其它问题请[提交问题(issue)](https://github.com/Mrminfive/nodejs.doc.cn/issues/new)*
+*如果遇到脚本语法兼容问题，请升级 `node` 版本。其它问题请[提交问题(issue)](https://github.com/Mrminfive/vue-multiple-page/issues/new)*
