@@ -1,0 +1,10 @@
+.btn {
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+.btn--small {
+	padding: .3em .6em;
+}
+.btn--big {
+	padding: .6em 1em;
+}

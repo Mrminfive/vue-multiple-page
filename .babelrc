@@ -1,0 +1,4 @@
+{
+	"presets": ["es2015", "es2016", "es2017", "stage-3"],
+	"plugins": ["transform-runtime", "syntax-dynamic-import"]
+}
