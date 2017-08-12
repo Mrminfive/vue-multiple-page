@@ -48,8 +48,13 @@ function commonsChunkName() {
 		: Object.keys(config.commons).concat('common');
 }
 
+function pathJoin(...args) {
+	return path.posix.join(...args);
+}
+
 module.exports = {
 	webpackCompile,
 	nowConfig,
-	commonsChunkName
+	commonsChunkName,
+	pathJoin
 }

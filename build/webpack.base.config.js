@@ -7,12 +7,12 @@ const
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 
-const { nowConfig } = require('./util');
+const { nowConfig, pathJoin } = require('./util');
 
 const config = nowConfig();
 
 function getPath(...args) {
-    return path.join(config.assetsRoot, ...args);
+    return pathJoin(config.assetsRoot, ...args);
 }
 
 function getCommonsChunk() {
@@ -54,8 +54,8 @@ module.exports = {
 
     output: {
         path: config.buildRoot,
-        filename: path.join('js', '[name].[hash].js'),
-        chunkFilename: path.join('js', '[name].[hash].js'),
+        filename: pathJoin('js', '[name].[hash].js'),
+        chunkFilename: pathJoin('js', '[name].[hash].js'),
         publicPath: config.publicPath
     },
 
@@ -109,7 +109,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        name: path.join(config.staticAssets, 'images/[name].[hash:8].[ext]')
+                        name: pathJoin(config.staticAssets, 'images/[name].[hash:8].[ext]')
                     }
                 }
             },
@@ -120,7 +120,7 @@ module.exports = {
                     loader: 'url-loader',
                     options: {
                         limit: 10000,
-                        name: path.join(config.staticAssets, 'fonts/[name].[hash:8].[ext]')
+                        name: pathJoin(config.staticAssets, 'fonts/[name].[hash:8].[ext]')
                     }
                 }
             }
@@ -130,7 +130,7 @@ module.exports = {
     plugins: [
         // 提取css
         new ExtractTextPlugin({
-            filename: path.join('css', '[name].[hash:8].css')
+            filename: pathJoin('css', '[name].[hash:8].css')
         }),
 
         // 检测外部依赖包是否更新
@@ -142,9 +142,9 @@ module.exports = {
         // 插入自定义文件插入到html中
         new AddAssetHtmlPlugin([
             {
-                filepath: path.join(config.assetsRoot, config.staticAssets, 'libs/js/vendors.js'),
-                publicPath: path.join(config.publicPath, config.staticAssets, 'libs/js'),
-                outputPath: path.join(config.staticAssets, 'libs/js'),
+                filepath: pathJoin(config.assetsRoot, config.staticAssets, 'libs/js/vendors.js'),
+                publicPath: pathJoin(config.publicPath, config.staticAssets, 'libs/js'),
+                outputPath: pathJoin(config.staticAssets, 'libs/js'),
                 files: config.libraryEntry.map(entry => entry + '.html'),
                 includeSourcemap: false
             }
