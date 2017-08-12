@@ -73,7 +73,7 @@ module.exports = webpackMerge(baseWebpackConfig, {
 		// bundle分析
 		// new BundleAnalyzerPlugin()
 	].concat(config.template.map(template => {
-		let chunkName = template.split('/').slice(-2)[0];
+		let chunkName = template.split(path.sep).slice(-2)[0];
 
 		return new HtmlWebpackPlugin({
 			filename: chunkName + '.html',
